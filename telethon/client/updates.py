@@ -341,14 +341,17 @@ class UpdateMethods:
                         continue
                     updates, users, chats = self._message_box.apply_difference(diff, self._mb_entity_cache)
                     if updates:
-                        self._log[__name__].info('Got difference for account updates')
+                        # Suppressing these annoying log messages
+                        # self._log[__name__].info('Got difference for account updates')
+                        pass
 
                     updates_to_dispatch.extend(self._preprocess_updates(updates, users, chats))
                     continue
 
                 get_diff = self._message_box.get_channel_difference(self._mb_entity_cache)
                 if get_diff:
-                    self._log[__name__].debug('Getting difference for channel %s updates', get_diff.channel.channel_id)
+                    # Suppressing these annoying log messages
+                    # self._log[__name__].debug('Getting difference for channel %s updates', get_diff.channel.channel_id)
                     try:
                         diff = await self(get_diff)
                     except (errors.UnauthorizedError, errors.AuthKeyError) as e:
