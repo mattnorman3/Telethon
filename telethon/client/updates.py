@@ -442,7 +442,9 @@ class UpdateMethods:
 
                     updates, users, chats = self._message_box.apply_channel_difference(get_diff, diff, self._mb_entity_cache)
                     if updates:
-                        self._log[__name__].info('Got difference for channel %d updates', get_diff.channel.channel_id)
+                        # Suppressing these annoying log messages
+                        # self._log[__name__].info('Got difference for channel %d updates', get_diff.channel.channel_id)
+                        pass
 
                     updates_to_dispatch.extend(self._preprocess_updates(updates, users, chats))
                     continue
